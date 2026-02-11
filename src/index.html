@@ -8,11 +8,37 @@
     <script type="module" src="/js/main.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>ParticleDex</h1>
+    <header class="main-header">
+        <div class="logo-container">
+            <img src="/images/logo.png" alt="ParticleDex Logo" class="logo-atom"> 
+            <span class="logo-text">ParticleDex</span>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#" class="nav-link">Início</a></li>
+                <li><a href="#" class="nav-link">Léptons</a></li>
+                <li><a href="#" class="nav-link">Quarks</a></li>
+                <li><a href="#" class="nav-link">Bósons</a></li>
+                <li><a href="#" class="nav-link">Sobre</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar partícula..." class="search-input">
+            <button class="search-button">Buscar</button>
+        </div>
     </header>
     <main id="app">
         <p>Test</p>
     </main>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ParticleDex. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Termos de Uso</a> |
+                <a href="#" class="footer-link">Política de Privacidade</a>
+            </div>
+            <p>Dados fornecidos pelo Particle Data Group (PDG)</p>
+        </div>
+    </footer>
 </body>
 </html>

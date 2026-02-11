@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Electron",
+        "category": "Lepton",
+        "pdgId": "S003"
+    },
+    {
+        "name": "Muon",
+        "category": "Lepton",
+        "pdgId": "S004"
+    },
+    {
+        "name": "Tau",
+        "category": "Lepton",
+        "pdgId": "S035"
+    },
+    {
+        "name": "Neutrinos",
+        "category": "Lepton",
+        "pdgId": "S066"
+    },
+    {
+        "name": "Gluon",
+        "category": "Gauge Boson",
+        "pdgId": "G021"
+    },
+    {
+        "name": "W Boson",
+        "category": "Gauge Boson",
+        "pdgId": "S043"
+    },
+    {
+        "name": "Z Boson",
+        "category": "Gauge Boson",
+        "pdgId": "S044"
+    },
+    {
+        "name": "Photon (Gamma)",
+        "category": "Gauge Boson",
+        "pdgId": "S000"
+    },
+    {
+        "name": "H (Higgs Boson)",
+        "category": "Scalar Boson",
+        "pdgId": "S126"
+    },
+    {
+        "name": "Light Quarks",
+        "category": "Quark",
+        "pdgId": "Q123"
+    },
+    {
+        "name": "Charm",
+        "category": "Quark",
+        "pdgId": "Q004"
+    },
+    {
+        "name": "Bottom",
+        "category": "Quark",
+        "pdgId": "Q005"
+    },
+    {
+        "name": "Top",
+        "category": "Quark",
+        "pdgId": "Q007"
+    }
+]
