@@ -3,11 +3,17 @@ import { getJson} from './ExternalServices.mjs';
 const particles = '/pdgapi';
 
 export default class Particle {
+<<<<<<< HEAD
     constructor(id, name, category, src) {
         this.id = id;
         this.name = name;
         this.category = category;
         this.src = src;
+=======
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+>>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
         this.data = null;
     }
 
@@ -27,7 +33,10 @@ export default class Particle {
             // Cada propriedade pode ter vários valores, pegamos o primeiro (oficial)
             const val = p.pdg_values?.[0] || {};
             
+<<<<<<< HEAD
             if (!val.value_text || val.value_text === '') return '';
+=======
+>>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
             return `
                 <div class="property-row" style="margin-bottom: 8px; border-bottom: 1px solid #eee;">
                     <small style="color: #666; display: block;">${p.description}</small>
@@ -40,9 +49,12 @@ export default class Particle {
         return `
             <div class='particle-card' style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; margin: 10px;">
                 <h2 style="margin-top: 0;">${this.name}</h2>
+<<<<<<< HEAD
                 <div class="particleImage">
                     <img src="/images/${this.src}" alt="${this.name}">
                 </div>
+=======
+>>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
                 <p><small>PDG ID: ${this.data.pdgid}</small></p>
                 <div class="properties-container">
                     ${propertiesHtml}

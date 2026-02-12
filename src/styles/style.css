@@ -130,11 +130,14 @@ a:hover {
     background-color: #00A690; /* Um teal um pouco mais escuro */
 }
 
+<<<<<<< HEAD
 #app {
     display: flex;
     flex-flow: column;
 }
 
+=======
+>>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
 /* MAIN CONTENT (onde os cards aparecem) */
 .particle-grid {
     flex-grow: 1; /* Faz o main ocupar o espaço restante */
@@ -187,6 +190,7 @@ a:hover {
     color: var(--text-light-gray);
 }
 
+<<<<<<< HEAD
 .particleCards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -209,6 +213,8 @@ a:hover {
 .particleCards img {
     border-radius: 15px;
 }
+=======
+>>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
 
 /* FOOTER */
 .main-footer {
