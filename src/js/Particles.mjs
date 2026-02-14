@@ -1,6 +1,6 @@
 import { getJson} from './ExternalServices.mjs';
 
-const particles = '/pdgapi';
+const particles = 'https://corsproxy.io/?https://pdgapi.lbl.gov';
 
 export default class Particle {
     constructor(id, name, category, src) {
@@ -31,7 +31,7 @@ export default class Particle {
             <div class='particle-card' style="border: 1px solid #ccc; padding: 15px; border-radius: 8px; margin: 10px;">
                 <h2 style="margin-top: 0;">${this.name}</h2>
                 <div class="particleImage">
-                    <img src="/images/${this.src}" alt="${this.name}">
+                    <img src="images/${this.src}" alt="${this.name}">
                 </div>
                 <p><small>PDG ID: ${this.data.pdgid}</small></p>
                 <button class="details-btn" data-id="${this.id}">See Properties</button>
