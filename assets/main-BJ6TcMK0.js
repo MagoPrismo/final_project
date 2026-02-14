@@ -1,0 +1,7 @@
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))n(t);new MutationObserver(t=>{for(const r of t)if(r.type==="childList")for(const s of r.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&n(s)}).observe(document,{childList:!0,subtree:!0});function o(t){const r={};return t.integrity&&(r.integrity=t.integrity),t.referrerPolicy&&(r.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?r.credentials="include":t.crossOrigin==="anonymous"?r.credentials="omit":r.credentials="same-origin",r}function n(t){if(t.ep)return;t.ep=!0;const r=o(t);fetch(t.href,r)}})();async function a(i){const e=await fetch(i);if(e.ok)return await e.json();throw new Error("Bad Response")}const c="/pdgapi";class d{constructor(e){this.id=e,this.data=null}async init(){const e=`${c}/summaries/${this.id}`;this.data=await a(e)}renderCard(){if(!this.data)return`<p>Error loading ${this.id}</p>`;const e=this.data.pdg_values[0];return`
+            <div class='particle-card'>
+                <h3>${this.data.description}</h3>
+                <p>ID: ${this.data.pdgid}</p>
+                <p>Value: ${e.value_text} ${e.unit}</p>
+            </div>
+        `}}async function u(){const i=document.querySelector("#app"),e=new d("S003M");await e.init(),i.innerHTML=e.renderCard()}u();
