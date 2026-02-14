@@ -130,14 +130,11 @@ a:hover {
     background-color: #00A690; /* Um teal um pouco mais escuro */
 }
 
-<<<<<<< HEAD
 #app {
     display: flex;
     flex-flow: column;
 }
 
-=======
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
 /* MAIN CONTENT (onde os cards aparecem) */
 .particle-grid {
     flex-grow: 1; /* Faz o main ocupar o espaço restante */
@@ -190,7 +187,6 @@ a:hover {
     color: var(--text-light-gray);
 }
 
-<<<<<<< HEAD
 .particleCards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -213,8 +209,74 @@ a:hover {
 .particleCards img {
     border-radius: 15px;
 }
-=======
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
+
+.hidden {
+    display: none;
+}
+
+.details-btn {
+    background-color: var(--atomic-teal);
+    color: var(--deep-space-blue);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.details-btn:hover {
+    background-color: var(--electron-purple);
+    color: var(--proton-white);
+}
+
+.details-content {
+    margin-top: 15px;
+    text-align: left;
+    animation: fadeIn 0.3s ease;
+}
+
+.prop-item {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.prop-item small {
+    color: var(--electron-purple);
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Spinner Simples */
+.loader {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 209, 178, 0.3); /* Teal transparente */
+    border-radius: 50%;
+    border-top-color: var(--atomic-teal);
+    animation: spin 1s ease-in-out infinite;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-text {
+    font-family: 'Roboto Mono', monospace;
+    color: var(--atomic-teal);
+    font-size: 0.9em;
+}
 
 /* FOOTER */
 .main-footer {

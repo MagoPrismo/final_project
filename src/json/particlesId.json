@@ -2,37 +2,24 @@
     {
         "name": "Electron",
         "category": "Lepton",
-<<<<<<< HEAD
         "pdgId": "S003",
         "src": "S003.png"
-=======
-        "pdgId": "S003"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Muon",
         "category": "Lepton",
-<<<<<<< HEAD
         "pdgId": "S004",
         "src": "S004.png"
-=======
-        "pdgId": "S004"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Tau",
         "category": "Lepton",
-<<<<<<< HEAD
         "pdgId": "S035",
         "src": "S035.png"
-=======
-        "pdgId": "S035"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Neutrinos",
         "category": "Lepton",
-<<<<<<< HEAD
         "pdgId": "S066",
         "src": "S066.gif"
     },
@@ -65,73 +52,29 @@
         "category": "Boson",
         "pdgId": "S126",
         "src": "S126.png"
-=======
-        "pdgId": "S066"
-    },
-    {
-        "name": "Gluon",
-        "category": "Gauge Boson",
-        "pdgId": "G021"
-    },
-    {
-        "name": "W Boson",
-        "category": "Gauge Boson",
-        "pdgId": "S043"
-    },
-    {
-        "name": "Z Boson",
-        "category": "Gauge Boson",
-        "pdgId": "S044"
-    },
-    {
-        "name": "Photon (Gamma)",
-        "category": "Gauge Boson",
-        "pdgId": "S000"
-    },
-    {
-        "name": "H (Higgs Boson)",
-        "category": "Scalar Boson",
-        "pdgId": "S126"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Light Quarks",
         "category": "Quark",
-<<<<<<< HEAD
         "pdgId": "Q123",
         "src": "Q123.png"
-=======
-        "pdgId": "Q123"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Charm",
         "category": "Quark",
-<<<<<<< HEAD
         "pdgId": "Q004",
         "src": "Q004.png"
-=======
-        "pdgId": "Q004"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Bottom",
         "category": "Quark",
-<<<<<<< HEAD
         "pdgId": "Q005",
         "src": "Q005.png"
-=======
-        "pdgId": "Q005"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     },
     {
         "name": "Top",
         "category": "Quark",
-<<<<<<< HEAD
         "pdgId": "Q007",
         "src": "Q007.png"
-=======
-        "pdgId": "Q007"
->>>>>>> 382d295f665edab210ccc7a2b05319e21a4b73e8
     }
 ]
