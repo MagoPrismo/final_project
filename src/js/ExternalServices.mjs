@@ -1,8 +1,12 @@
 export async function getJson(url) {
-    const response = await fetch(url);
-    if (response.ok) {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return await response.json();
-    } else {
-        throw new Error('Bad Response');
+    } catch (e) {
+        console.error("Erro no fetch:", e);
+        throw e;
     }
 }
