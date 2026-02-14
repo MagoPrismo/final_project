@@ -1,4 +1,4 @@
-import { getJson} from './ExternalServices.mjs'; // comment
+import { getJson} from './ExternalServices.mjs'; // comment bruh
 
 const particles = 'https://corsproxy.io/?https://pdgapi.lbl.gov';
 
