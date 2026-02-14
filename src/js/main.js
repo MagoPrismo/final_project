@@ -42,6 +42,7 @@ document.querySelector('#app').addEventListener('click', (e) => {
             ? 'See Properties' 
             : 'Close';
     }
+    
 });
 
 // filters
