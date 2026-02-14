@@ -45,7 +45,7 @@ export default class Particle {
     _renderProperties() {
         const props = this.data.summaries?.properties || [];
         return props
-            .filter(p => p.pdg_values?.[0]?.value_text) // Só o que tem valor
+            .filter(p => p.pdg_values?.[0]?.value_text)
             .map(p => `
                 <div class="prop-item">
                     <small>${p.description}</small>
