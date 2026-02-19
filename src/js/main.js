@@ -1,28 +1,36 @@
-import Particle from './Particles.mjs';
+import { fetchAllParticles } from './Particles.mjs';
 import { fetchAllConstants } from './Constants.mjs';
-
-const pdgIds = './json/particlesId.json';
  
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function populateParticles() {
     try {
-        const response = await fetch(pdgIds);
-        const particles = await response.json();
+        const particles = await fetchAllParticles();
 
         for (const part of particles) {
-            const p = new Particle(part.pdgId, part.name, part.category, part.src);
             const section = document.querySelector(`#${part.category}`);
-            
+            if (!section) continue; // Evita erro se a seção não existir
+        
             const placeholder = document.createElement('div');
-            placeholder.id = `container-${part.pdgId}`;
-            placeholder.innerHTML = p.renderCard(); // add spinner 
+            const containerId = `container-${part.pdgId}`; // ID único
+            placeholder.id = containerId;
+            
+            // 1. Mostra o Spinner (part.data ainda é undefined)
+            placeholder.innerHTML = part.renderCard(); 
             section.appendChild(placeholder);
-
-            await p.fetchDetails();
-            document.getElementById(`container-${part.pdgId}`).innerHTML = p.renderCard();
-
-            await sleep(500); // we have to wait a bit - the api don't let us to load more then two particles per second
+        
+            // 2. Espera o tempo do spinner
+            await sleep(500); 
+        
+            // 3. ATIVA OS DADOS: Define part.data como algo verdadeiro 
+            // para que o renderCard saia do "if (!this.data)"
+            part.data = part; 
+        
+            // 4. Seleciona o elemento que acabamos de criar e atualiza
+            const targetElement = document.getElementById(containerId);
+            if (targetElement) {
+                targetElement.innerHTML = part.renderCard();
+            }
         }
     } catch (error) {
         console.error("Error while populating the site.")
@@ -110,13 +118,16 @@ searchButton.addEventListener("click", (e) => {
 
 async function populateConstants() {
     const container = document.querySelector("#constants-container");
+    if (!container) {
+        return; // Sai da função silenciosamente
+    }
     const constants = await fetchAllConstants();
 
     container.innerHTML = constants.map(c => c.renderCard()).join('')
     
-// open the card
-const cards = container.querySelectorAll('.constant-card');
-cards.forEach(card => {
+    // open the card
+    const cards = container.querySelectorAll('.constant-card');
+    cards.forEach(card => {
     card.addEventListener('click', () => {
 
         const details = card.querySelector('.details');

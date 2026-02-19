@@ -1,19 +1,15 @@
 import { getJson} from './ExternalServices.mjs'; // comment bruh
 
-const particles = 'https://corsproxy.io/?https://pdgapi.lbl.gov';
-
 export default class Particle {
-    constructor(id, name, category, src) {
-        this.id = id;
-        this.name = name;
-        this.category = category;
-        this.src = src;
-        this.data = null;
-    }
-
-    async fetchDetails() {
-        const url = `${particles}/summaries/${this.id}`;
-        this.data = await getJson(url);
+    constructor(data) {
+        this.pdgId = data.pdgId;
+        this.name = data.name;
+        this.category = data.category;
+        this.src = data.src;
+        this.symbol = data.symbol;
+        this.mass = data.mass;
+        this.charge = data.charge;
+        this.spin = data.spin;
     }
 
     renderCard() {
@@ -33,9 +29,9 @@ export default class Particle {
                 <div class="particleImage">
                     <img src="images/${this.src}" alt="${this.name}">
                 </div>
-                <p><small>PDG ID: ${this.data.pdgid}</small></p>
-                <button class="details-btn" data-id="${this.id}">See Properties</button>
-                <div id="details-${this.id}" class="details-content hidden">
+                <p><small>PDG ID: ${this.pdgId}</small></p>
+                <button class="details-btn" data-id="${this.pdgId}">See Properties</button>
+                <div id="details-${this.pdgId}" class="details-content hidden">
                     ${this._renderProperties()}
                 </div>
             </div>
@@ -43,14 +39,17 @@ export default class Particle {
     }
 
     _renderProperties() {
-        const props = this.data.summaries?.properties || [];
-        return props
-            .filter(p => p.pdg_values?.[0]?.value_text)
-            .map(p => `
-                <div class="prop-item">
-                    <small>${p.description}</small>
-                    <span>${p.pdg_values[0].value_text} ${p.pdg_values[0].unit || ''}</span>
-                </div>
-            `).join('');
+        return `
+            <div class="prop-item"><small>Symbol:</small> <span>${this.symbol}</span></div>
+            <div class="prop-item"><small>Mass:</small> <span>${this.mass}</span></div>
+            <div class="prop-item"><small>Charge:</small> <span>${this.charge}</span></div>
+            <div class="prop-item"><small>Spin:</small> <span>${this.spin}</span></div>
+        `;
     }
+}
+
+export async function fetchAllParticles() {
+    const url = './json/particles.json';
+    const data = await getJson(url);
+    return data.map(item => new Particle(item));
 }
