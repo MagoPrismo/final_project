@@ -1,4 +1,5 @@
 import Particle from './Particles.mjs';
+import { fetchAllConstants } from './Constants.mjs';
 
 const pdgIds = './json/particlesId.json';
  
@@ -73,10 +74,21 @@ const searchButton = document.querySelector(".search-button");
 
 function peformSearch(){
     const term = searchInput.value.toLowerCase();
-    const allCards = document.querySelectorAll(".particle-card");
-    const allSections = document.querySelectorAll(".particleCards");
+    const allParticles = document.querySelectorAll(".particle-card");
+    const allConstants = document.querySelectorAll(".constant-card");
 
-    allCards.forEach(card => {
+    allParticles.forEach(card => {
+        const name = card.querySelector("h2").textContent.toLowerCase();
+        const id = card.querySelector("p").textContent.toLocaleLowerCase();
+
+        if (term === "" || name.includes(term) || id.includes(term)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    allConstants.forEach(card => {
         const name = card.querySelector("h2").textContent.toLowerCase();
         const id = card.querySelector("p").textContent.toLocaleLowerCase();
 
@@ -94,3 +106,25 @@ searchButton.addEventListener("click", (e) => {
     peformSearch();
 })
 
+// constants
+
+async function populateConstants() {
+    const container = document.querySelector("#constants-container");
+    const constants = await fetchAllConstants();
+
+    container.innerHTML = constants.map(c => c.renderCard()).join('')
+    
+// open the card
+const cards = container.querySelectorAll('.constant-card');
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+
+        const details = card.querySelector('.details');
+        details.classList.toggle('hidden');
+        
+        card.classList.toggle('active');
+    });
+});
+}
+
+populateConstants();

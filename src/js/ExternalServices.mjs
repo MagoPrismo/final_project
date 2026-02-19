@@ -6,7 +6,7 @@ export async function getJson(url) {
         }
         return await response.json();
     } catch (e) {
-        console.error("Erro no fetch:", e);
+        console.error("Error in fetching:", e);
         throw e;
     }
 }
